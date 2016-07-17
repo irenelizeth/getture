@@ -9,5 +9,11 @@
     </p>
 
   </div>
+    
+  {% if page.js %}
+    {% for js in page.js %}
+	   <script src="{{ js | prepend: site.baseurl | replace: '//', '/' }}"></script>
+    {% endfor %}
+  {% endif %}
 
 </footer>
