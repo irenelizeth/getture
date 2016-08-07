@@ -40,6 +40,12 @@ $(document).ready(function() {
             console.log("Gridder Closed");
         }
     });
+    
+    // getting current page
+    var cpage = getCurrentPage();
+    
+    // registering events specific for each page
+    registerPageEvents(cpage);
 
 });
 
@@ -66,27 +72,34 @@ function registerPageEvents(cpage) {
     // registering the events depending on the page
     switch (cpage) {
         case "suggest":
-            console.log("current_page: suggest");
+            console.log("hey current_page: suggest");
             
             // submit event
-            $('#search').submit(function(event) {
+            $('#suggest_search').submit(function(event) {
                 event.preventDefault();
+                
+                var suggest_query = $(this).value;
+                
+                console.info("searching for: "+value);
                 
                 getAllActivities(function(data) {
                     
-                    // removing current rows
+                    console.info("received data for suggestion query");
+                    
+                    // removing current results
                     $("#grider_results > lu").remove();
+                    $('#results-query > div').remove();
 
                     // adding
                     for(var i = 0; i < data.length; i++) {
-                        var suggestion = "<lu class='gridder-list'" 
+                        var suggestion = $("<lu class='gridder-list'" 
                                   + " data-griddercontent='#gridder-content" 
-                                  + i + "'>" + " <img src=" + data[i].urlImg +" />");
-                        suggestion.appendTo("#grider_activities");
+                                  + i + "'>" + " <img src='" + data[i].urlImg +"'/></lu>");
+                        $("#grider_results").append(suggestion);
                         
-                        createDivForSuggestionDetails(data[i]);
+                        createDivForSuggestionDetails(data[i], i);
                     }
-                });
+                }, suggest_query);
             });
             
             break;
@@ -107,15 +120,19 @@ function registerPageEvents(cpage) {
 */
 function createDivForSuggestionDetails(data, index){
     
-    var imgDiv = '<div class="col-sm-6"><img src="'+ data.urlImg 
-                    + '" class="img-responsive" /></div>';
-    var infoDiv = '<div class="col-sm-6"> <h2>' + data.name + '</h2> '
-                    + '<p>' + data.summary + '</p> </div>';
     
-    var divRow = 'div class="row"> '+ imgDiv + infoDiv + '</div>';
+    console.info("creating div for suggestion "+ index, ", data name: "+ data.name);
     
-    var parentDiv = '<div id="gridder-content'+index+'" class="gridder-content">'
-                    + divRow + '</div> ';
+    var imgDiv = $('<div class="col-sm-6"><img src="'+ data.urlImg 
+                    + '" class="img-responsive" /></div>');
+    var infoDiv = $('<div class="col-sm-6"> <h2>' + data.name + '</h2> '
+                    + '<p>' + data.summary + '</p> </div>');
+    var divRow = $('<div class="row"></div>');
+    var parentDiv = $('<div id="gridder-content'+index+'" class="gridder-content"></div>');
+    
+    divRow.append(imgDiv);
+    divRow.append(infoDiv);
+    parentDiv.append(divRow);
     
     parentDiv.appendTo("#results-query");
     

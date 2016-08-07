@@ -9,9 +9,9 @@
 
 // Server:
 
-var protocol: "http";
-var host: "localhost"
-var port: "4000"
+var protocol = "http";
+var host = "localhost";
+var port = "4000";
 
 // url of the base web client:
 var baseURL = protocol + "://" + host + ":" + port + "/";
@@ -25,7 +25,7 @@ var baseAPIURL = baseURL + "api/";
 // ********* Suggest (places, activities)
 // version: 0
 
-var suggestSearch = 'suggest/search';
+var suggestSearch = 'suggestion/search';
 /*
 * get all places, activities in the local area
 */
@@ -35,7 +35,7 @@ var suggestSearch = 'suggest/search';
     
         $.ajax({
             type: 'GET',
-            url: baseAPIURL + suggestSearch + "/" + query;
+            url: baseAPIURL + suggestSearch + "/" + query,
             dataType: 'json',
             success: function(data){
                 console.info("got all places activities");

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Suggest place
+current_page: suggest
 css: ["/css/getture.css", "/css/jquery.gridder.min.css", "/css/jquery.gridder.min.css.map"]
 js: ["/js/restfulapi_getture.js", /js/jquery-1.11.2.min.js", "/js/bootstrap.js", "/js/jquery.gridder.min.js", "/js/getture.js"]
 ---
