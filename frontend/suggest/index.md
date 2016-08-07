@@ -2,16 +2,17 @@
 layout: page
 title: Suggest place
 css: ["/css/getture.css", "/css/jquery.gridder.min.css", "/css/jquery.gridder.min.css.map"]
-js: ["/js/jquery-1.11.2.min.js", "/js/bootstrap.js", "/js/jquery.gridder.min.js", "/js/getture.js"]
+js: ["/js/restfulapi_getture.js", /js/jquery-1.11.2.min.js", "/js/bootstrap.js", "/js/jquery.gridder.min.js", "/js/getture.js"]
 ---
 
 <div name="search" class="">
-    <label for="suggest_search">Suggest a place or activity...</label><br>
+    <label for="suggest_search">Enter a place or activity you would like to recomment to other people visiting: </label><br>
     <input type="text" name="search" id="suggest_search" placeholder="Search place..">
 </div>
+<br>
 
 <!-- Gridder navigation -->
-<ul class="gridder">
+<ul class="gridder" id="grider_results">
 
      <!-- You can load specify which content is loaded by specifying the #ID of the div where the content is  -->
     <lu class="gridder-list" data-griddercontent="#gridder-content-1">
@@ -26,6 +27,10 @@ js: ["/js/jquery-1.11.2.min.js", "/js/bootstrap.js", "/js/jquery.gridder.min.js"
 
 </ul>
 
+
+<div id="results-query">
+</div>
+
 <div id="gridder-content-1" class="gridder-content">
                 <div class="row">
                     <div class="col-sm-6">
@@ -33,9 +38,7 @@ js: ["/js/jquery-1.11.2.min.js", "/js/bootstrap.js", "/js/jquery.gridder.min.js"
                     </div>
                     <div class="col-sm-6">
                         <h2>Item 1</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ex augue, hendrerit sed gravida ut, mattis vel tortor. Duis hendrerit sagittis bibendum. Fusce massa risus, hendrerit et est vitae, convallis accumsan ipsum. Integer vitae erat mattis, ornare tortor nec, luctus turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse finibus fermentum consectetur. Nulla vestibulum, diam ut finibus dictum, justo felis blandit mi, sed rhoncus tortor augue vitae orci. Fusce semper eu ante ut faucibus.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ex augue, hendrerit sed gravida ut, mattis vel tortor. Duis hendrerit sagittis bibendum. Fusce massa risus, hendrerit et est vitae, convallis accumsan ipsum. Integer vitae erat mattis, ornare tortor nec, luctus turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse finibus fermentum consectetur. Nulla vestibulum, diam ut finibus dictum, justo felis blandit mi, sed rhoncus tortor augue vitae orci. Fusce semper eu ante ut faucibus.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ex augue, hendrerit sed gravida ut, mattis vel tortor. Duis hendrerit sagittis bibendum. Fusce massa risus, hendrerit et est vitae, convallis accumsan ipsum. Integer vitae erat mattis, ornare tortor nec, luctus turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse finibus fermentum consectetur. Nulla vestibulum, diam ut finibus dictum, justo felis blandit mi, sed rhoncus tortor augue vitae orci. Fusce semper eu ante ut faucibus.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ex augue, hendrerit sed gravida ut, mattis vel tortor. Duis hendrerit sagittis bibendum. Fusce massa risus, hendrerit et est vitae, convallis accumsan ipsum.</p>
                     </div>
                 </div>
 </div>
