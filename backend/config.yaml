@@ -1,0 +1,5 @@
+# Extending from the default server configuration
+server:
+  applicationConnectors:
+    - type: http
+      port: 4000
