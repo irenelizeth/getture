@@ -16,9 +16,11 @@
         {% endfor %}
     {% endif %}
     
+<!--
     {% if page.js %}
         {% for js in page.js %}
-            <link rel="stylesheet" href="{{ css | prepend: site.baseurl | replace: '//',  '/' }}"/>
+            <script src="{{ js | prepend: site.baseurl | replace: '//', '/' }}"></script>        
         {% endfor %}
     {% endif %}
+-->
 </head>
