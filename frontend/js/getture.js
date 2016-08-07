@@ -75,12 +75,12 @@ function registerPageEvents(cpage) {
             console.log("hey current_page: suggest");
             
             // submit event
-            $('#suggest_search').submit(function(event) {
+            $('#suggest_search').keyup(eventData, function(event) {
                 event.preventDefault();
                 
                 var suggest_query = $(this).value;
                 
-                console.info("searching for: "+value);
+                console.info("searching for: "+ suggest_query);
                 
                 getAllActivities(function(data) {
                     
